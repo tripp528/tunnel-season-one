@@ -9,6 +9,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
+    "socket.io-client": "^3.0.4",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -36,7 +37,7 @@
     ]
   },
   "engines": {
-    "node":"15.3.0",
-    "yarn":"1.22.10"
+    "node": "15.3.0",
+    "yarn": "1.22.10"
   }
 }
