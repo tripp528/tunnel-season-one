@@ -4,8 +4,6 @@ from flask_socketio import SocketIO, send
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-
-
 # create app
 app = Flask(__name__, static_folder='./build')
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -15,11 +13,28 @@ db = SQLAlchemy(app)
 # create server
 socket = SocketIO(app, cors_allowed_origins="*")
 
+# ------------------------- MODELS -------------------------
+class Message(db.Model):
+    __tablename__ = 'messages'
+
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String())
+
+    def __init__(self, content):
+        self.content = content
+
+    def __repr__(self):
+        return '<id {}: {}>'.format(self.id, self.content)
+
 # called when client emits "message" event
 @socket.on("message")
-def handle_message(msg):
-    print("message event handler called in app.py", msg)
-    send(msg, broadcast=True)
+def handle_message(msg_content):
+    print("message event handler called in app.py", msg_content)
+    send(msg_content, broadcast=True)
+    message = Message(content=msg_content)
+    db.session.add(message)
+    db.session.commit()
+    print('\n\n\n', Message.query.all())
     return None
 
 # Serve React App
@@ -30,8 +45,6 @@ def serve(path):
         return send_from_directory(app.static_folder, path)
     else:
         return send_from_directory(app.static_folder, 'index.html')
-
-from models import Message
 
 # migrations
 migrate = Migrate(app, db)
