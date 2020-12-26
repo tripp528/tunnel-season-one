@@ -31,7 +31,9 @@ def serve(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
-# migrations 
+from models import Message
+
+# migrations
 migrate = Migrate(app, db)
 
 # run the app
