@@ -1,6 +1,6 @@
 import os
 from flask import Flask, send_from_directory
-from flask_socketio import SocketIO, send
+from flask_socketio import SocketIO, send, emit
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -36,6 +36,17 @@ def handle_message(msg_content):
     db.session.commit()
     print('\n\n\n', Message.query.all())
     return None
+
+@socket.on("logged_in")
+def get_message_history():
+    messages = Message.query.all()
+    messages_json = []
+    for message in messages:
+        messages_json.append({
+            'id': message.id,
+            'content': message.content
+        })
+    emit("message_history", messages_json)
 
 # Serve React App
 @app.route('/', defaults={'path': ''})
