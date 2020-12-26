@@ -1,17 +1,13 @@
-# app.py
-from flask import Flask
+import os
+from flask import Flask, send_from_directory
 from flask_socketio import SocketIO, send
 
 # create app
-app = Flask(__name__)
-# add secret key
-app.config['SECRET_KEY'] = 'mysecret'
+app = Flask(__name__, static_folder='./build')
+app.config.from_object(os.environ['APP_SETTINGS'])
 
 # create server
 socket = SocketIO(app, cors_allowed_origins="*")
-
-# makes it so you don't need to restart on changing code
-app.debug = True
 
 # called when client emits "message" event
 @socket.on("message")
@@ -20,6 +16,17 @@ def handle_message(msg):
     send(msg, broadcast=True)
     return None
 
+# Serve React App
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
+
+        
 # run the app
 if __name__ == '__main__':
+    print(os.environ['APP_SETTINGS'])
     socket.run(app)
