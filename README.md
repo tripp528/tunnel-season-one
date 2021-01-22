@@ -1,1 +1,4 @@
-# Oli's website 
+# Oli's website
+
+
+source .env 

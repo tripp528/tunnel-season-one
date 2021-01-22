@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react"
 import io from "socket.io-client"
 
 // let endPoint = "http://localhost:5000"
-let endPoint = ""
+// let endPoint = "/"
+// let endPoint = "https://tunnel-season-one.herokuapp.com/"
+let endPoint = process.env.REACT_APP_API_URL
+console.log("process.env.REACT_APP_API_URL", process.env.REACT_APP_API_URL)
 
 let socket = io.connect(`${endPoint}`)
 
 const App = () => {
-  const [messages, setMessages] = useState(["Hello And Welcome"])
+  const [messages, setMessages] = useState([])
   const [message, setMessage] = useState("")
 
   useEffect(() => {
@@ -21,17 +24,14 @@ const App = () => {
 
   const get_message_history = () => {
     socket.on("message_history", message_history => {
-      // setMessages(messages)
-      console.log(message_history)
+      message_history.reverse()
+      setMessages([...message_history.map(m => m.content)])
     })
   }
 
   const getMessages = () => {
     socket.on("message", msg => {
-      //   let allMessages = messages
-      //   allMessages.push(msg)
-      //   setMessages(allMessages)
-      setMessages([...messages, msg])
+      setMessages([msg, ...messages])
     })
   }
 
@@ -52,14 +52,15 @@ const App = () => {
 
   return (
     <div>
+      <p> Hello And Welcome </p>
+      <input value={message} name="message" onChange={e => onChange(e)} />
+      <button onClick={() => onClick()}>Send Message</button>
       {messages.length > 0 &&
-        messages.map(msg => (
+        messages.sort( (a, b) => b.id - a.id ).map(msg => (
           <div>
             <p>{msg}</p>
           </div>
         ))}
-      <input value={message} name="message" onChange={e => onChange(e)} />
-      <button onClick={() => onClick()}>Send Message</button>
     </div>
   )
 }
