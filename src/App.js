@@ -7,7 +7,7 @@ import io from "socket.io-client"
 let endPoint = process.env.REACT_APP_API_URL
 console.log("process.env.REACT_APP_API_URL", process.env.REACT_APP_API_URL)
 
-let socket = io.connect(`${endPoint}`)
+let socket = io.connect(`${endPoint}`) // {transports: ['websocket']} to get working on heroku ?? 
 
 const App = () => {
   const [messages, setMessages] = useState([])
