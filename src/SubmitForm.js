@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-import background_land from "./Assets/1_Landing Page/1_Background.jpg"
+import submit_button_img from "./Assets/landing/1_Submit_Button.png"
 
 const SubmitForm = ({ socket, set_page }) => {
   const [message, setMessage] = useState("")
@@ -22,10 +22,39 @@ const SubmitForm = ({ socket, set_page }) => {
   }
 
   return (
-    <div>
-      <div> Submit Something </div>
-      <input value={message} name="message" onChange={e => onChange(e)} />
-      <button onClick={() => onClick()}>Send Message</button>
+    <div style={{
+      color: 'white',
+      textAlign: 'center',
+      font: 'small-caps bold 24px/1 sans-serif'
+    }}
+    >
+      <div> SAY SOMETHING TO CONTINUE </div>
+      <div> (SUBMISSIONS WILL BE RECORDED) </div>
+      <input
+        value={message}
+        name="message"
+        onChange={e => onChange(e)}
+        style={{
+          '-webkit-border-radius': '20px',
+          '-moz-border-radius': '20px',
+          'border-radius': '20px',
+          'border': '1px solid #2d9fd9',
+          'color': '#a0d18c',
+          'width': '250px',
+          'height': '30px',
+          'padding-left': '10px',
+        }}
+      />
+      <div>
+      <button onClick={() => onClick()} style={{
+        "mix-blend-mode": "multiply",
+        border: 0,
+        padding: 0,
+        backgroundColor: 'white'
+      }} >
+        <img src={submit_button_img} alt="Submit" />
+      </button>
+      </div>
     </div>
   )
 }
