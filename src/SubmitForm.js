@@ -41,13 +41,14 @@ const SubmitForm = ({ socket, set_page }) => {
           'border': '1px solid #2d9fd9',
           'color': '#a0d18c',
           'width': '250px',
-          'height': '30px',
-          'padding-left': '10px',
+          'height': '50px',
+          'padding': '20px',
         }}
       />
       <div>
       <button onClick={() => onClick()} style={{
-        "mix-blend-mode": "multiply",
+        // "mix-blend-mode": "multiply",
+        borderRadius: 100,
         border: 0,
         padding: 0,
         backgroundColor: 'white'

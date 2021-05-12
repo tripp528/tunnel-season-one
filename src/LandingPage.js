@@ -3,7 +3,7 @@ import { Row, Col } from 'antd'
 
 import SubmitForm from './SubmitForm'
 import SubmissionLog from './SubmissionLog'
-import background_land from "./Assets/1_Landing Page/1_Background.jpg"
+import background_land from "./Assets/landing/1_Background.jpg"
 
 const LandingPage = ({ socket, set_page }) => {
 

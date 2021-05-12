@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 
 import LandingPage from './LandingPage'
+import TunnelChoice from './TunnelChoice'
 
 const ConditionalRouter = ({ socket }) => {
 
+  // const [ page, set_page ] = useState('tunnel_choice')
   const [ page, set_page ] = useState('landing')
 
   return (
@@ -13,7 +15,7 @@ const ConditionalRouter = ({ socket }) => {
       : null}
 
       {page === 'tunnel_choice' ?
-        <div> tunnel_choice </div>
+        <TunnelChoice/>
       : null}
 
     </div>
