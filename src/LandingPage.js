@@ -25,7 +25,7 @@ const LandingPage = ({ socket, set_page }) => {
           <div style={{position: 'relative',
             width: '100%',
             height: '0px',
-            paddingBottom: '56.25%',
+            paddingBottom: 'min(56.25%, 50vh)',
             // marginLeft: '10%',
             // marginRight: '10%',
           }}>

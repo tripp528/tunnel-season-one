@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 import submit_button_img from "./Assets/landing/1_Submit_Button.png"
+import say_something from "./Assets/landing/1_Say_Something.png"
 
 const SubmitForm = ({ socket, set_page }) => {
   const [message, setMessage] = useState("")
@@ -28,8 +29,18 @@ const SubmitForm = ({ socket, set_page }) => {
       font: 'small-caps bold 24px/1 sans-serif'
     }}
     >
-      <div> SAY SOMETHING TO CONTINUE </div>
-      <div> (SUBMISSIONS WILL BE RECORDED) </div>
+      <div>
+        <img
+          src={say_something}
+          height="100vh"
+          style={{
+            padding: 20,
+            maxWidth: "100vw",
+          }}
+        />
+      </div>
+      {/*<div> SAY SOMETHING TO CONTINUE </div>
+      <div> (SUBMISSIONS WILL BE RECORDED) </div>*/}
       <input
         value={message}
         name="message"
@@ -51,7 +62,8 @@ const SubmitForm = ({ socket, set_page }) => {
         borderRadius: 100,
         border: 0,
         padding: 0,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        cursor: 'pointer',
       }} >
         <img src={submit_button_img} alt="Submit" />
       </button>
