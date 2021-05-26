@@ -37,7 +37,7 @@ const LandingPage = ({ socket, set_page }) => {
               height: '100%',
             }}
               title="vimeo-player"
-              src="https://player.vimeo.com/video/534636098"
+              src="https://player.vimeo.com/video/552162107"
               width="100%"
               height="auto"
               frameborder="0"
@@ -47,7 +47,7 @@ const LandingPage = ({ socket, set_page }) => {
         </Col >
       </Row>
       <Row align="middle" justify="center" gutter={[0,0]}>
-        <SubmitForm socket={socket} set_page={set_page} />
+        <SubmitForm socket={socket} on_submit_post={() => set_page('tunnel_choice')} />
       </Row>
     </div>
   )

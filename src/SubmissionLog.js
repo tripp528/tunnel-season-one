@@ -15,26 +15,34 @@ const SubmissionLog = ({ socket }) => {
 
   const get_message_history = () => {
     socket.on("message_history", message_history => {
-      message_history.reverse()
-      setMessages([...message_history.map(m => m.content)])
+      setMessages(message_history)
     })
   }
 
   const getMessages = () => {
-    socket.on("message", msg => {
-      setMessages([msg, ...messages])
+    socket.on("new_message", msg => {
+      console.log(msg)
+      setMessages([...messages, msg])
     })
   }
 
   return (
-    <div>
-      <div> Submission Log </div>
-      {messages.length > 0 &&
-        messages.sort( (a, b) => b.id - a.id ).map(msg => (
-          <div>
-            <div>{msg}</div>
-          </div>
-        ))}
+    <div
+      style={{
+        height: '70px',
+        overflow: 'auto',
+        display: 'flex',
+        flexDirection: 'column-reverse',
+      }}
+    >
+      <div>
+        <div> Submission Log </div>
+
+        {messages.length > 0 &&
+          messages.map(msg => (
+            <div key={msg.id}> {msg.content} </div>
+          ))}
+      </div>
     </div>
   )
 }

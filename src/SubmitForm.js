@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 import submit_button_img from "./Assets/landing/1_Submit_Button.png"
 import say_something from "./Assets/landing/1_Say_Something.png"
 
-const SubmitForm = ({ socket, set_page }) => {
+const SubmitForm = ({ socket, on_submit_post }) => {
   const [message, setMessage] = useState("")
 
   // On Change
@@ -14,9 +14,9 @@ const SubmitForm = ({ socket, set_page }) => {
   // On Click
   const onClick = () => {
     if (message !== "") {
-      socket.emit("message", message)
+      socket.emit("new_message", message)
       setMessage("")
-      set_page('tunnel_choice')
+      on_submit_post()
     } else {
       alert("Please Add A Message")
     }

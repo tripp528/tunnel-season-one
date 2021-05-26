@@ -9,11 +9,13 @@ source .env
 ca oli
 
 python app.py
+
+npm start
 ```
 
 #### can't load server?
 GET http://undefined/socket.io
-make sure .env is sourced 
+make sure .env is sourced
 
 #### debug postgresql problems
 ```

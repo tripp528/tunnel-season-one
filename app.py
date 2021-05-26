@@ -27,13 +27,16 @@ class Message(db.Model):
         return '<id {}: {}>'.format(self.id, self.content)
 
 # called when client emits "message" event
-@socket.on("message")
+@socket.on("new_message")
 def handle_message(msg_content):
     print("message event handler called in app.py", msg_content)
-    send(msg_content, broadcast=True)
     message = Message(content=msg_content)
     db.session.add(message)
     db.session.commit()
+    emit('new_message', {
+        'id': message.id,
+        'content': message.content
+    }, broadcast=True)
     print('\n\n\n', Message.query.all())
     return None
 

@@ -2,9 +2,9 @@ import React from 'react'
 import { Row, Col } from 'antd'
 
 import background from "./Assets/tunnel_choice/2_Background.jpg"
-import choice1_img from "./Assets/tunnel_choice/2_Tunnel_1.png"
-import choice2_img from "./Assets/tunnel_choice/2_Tunnel_2.png"
-import choice3_img from "./Assets/tunnel_choice/2_Tunnel_3.png"
+import choice1_img from "./Assets/tunnel_choice/tunnel_1.png"
+import choice2_img from "./Assets/tunnel_choice/tunnel_2.png"
+import choice3_img from "./Assets/tunnel_choice/tunnel_3.png"
 
 const TunnelChoice = ({ set_page }) => {
   return (

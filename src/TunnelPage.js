@@ -1,5 +1,8 @@
 import React from 'react'
+import { Row, Col } from 'antd'
+
 import SubmissionLog from './SubmissionLog'
+import SubmitForm from './SubmitForm'
 
 const TunnelPage = ({
   socket,
@@ -10,7 +13,15 @@ const TunnelPage = ({
 
       Tunnel # {number}
 
-      <SubmissionLog socket={socket} />
+      <Row
+        align="middle"
+        // justify="center"
+      >
+        <Col span={6}>
+          <SubmissionLog socket={socket} />
+          <SubmitForm socket={socket} on_submit_post={() => {}} />
+        </Col>
+      </Row>
     </div>
   )
 }
