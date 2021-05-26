@@ -29,7 +29,7 @@ class Message(db.Model):
 # called when client emits "message" event
 @socket.on("new_message")
 def handle_message(msg_content):
-    print("message event handler called in app.py", msg_content)
+    # print("message event handler called in app.py", msg_content)
     message = Message(content=msg_content)
     db.session.add(message)
     db.session.commit()
@@ -37,7 +37,7 @@ def handle_message(msg_content):
         'id': message.id,
         'content': message.content
     }, broadcast=True)
-    print('\n\n\n', Message.query.all())
+    # print('\n\n\n', Message.query.all())
     return None
 
 @socket.on("logged_in")

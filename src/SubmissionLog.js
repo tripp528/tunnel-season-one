@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
+import { Row, Col, Input } from 'antd'
 
 const SubmissionLog = ({ socket }) => {
 
   const [messages, setMessages] = useState([])
+  const [message, set_message] = useState("")
 
   useEffect(() => {
     getMessages()
@@ -21,7 +23,6 @@ const SubmissionLog = ({ socket }) => {
 
   const getMessages = () => {
     socket.on("new_message", msg => {
-      console.log(msg)
       setMessages([...messages, msg])
     })
   }
@@ -29,10 +30,11 @@ const SubmissionLog = ({ socket }) => {
   return (
     <div
       style={{
-        height: '70px',
+        height: '90vh',
         overflow: 'auto',
         display: 'flex',
         flexDirection: 'column-reverse',
+        colorScheme: 'dark'
       }}
     >
       <div>
@@ -42,6 +44,21 @@ const SubmissionLog = ({ socket }) => {
           messages.map(msg => (
             <div key={msg.id}> {msg.content} </div>
           ))}
+
+          <Input
+            style={{margin: '10%', width: '80%'}}
+            value={message}
+            onChange={e => set_message(e.target.value)}
+            onPressEnter={e => {
+              if (message !== "") {
+                socket.emit("new_message", message)
+                set_message("")
+              } else {
+                alert("Please Add A Message")
+              }
+            }}
+            placeholder="Enter"
+          />
       </div>
     </div>
   )

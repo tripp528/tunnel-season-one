@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import io from "socket.io-client"
-import 'antd/dist/antd.css'
+import 'antd/dist/antd.dark.css'
+// import 'antd/dist/antd.css'
 
 import ConditionalRouter from './ConditionalRouter'
 
