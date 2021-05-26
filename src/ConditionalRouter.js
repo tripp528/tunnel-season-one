@@ -7,8 +7,8 @@ import TunnelPage from './TunnelPage'
 const ConditionalRouter = ({ socket }) => {
 
   // const [ page, set_page ] = useState('tunnel_choice')
-  const [ page, set_page ] = useState('tunnel_3')
-  // const [ page, set_page ] = useState('landing')
+  // const [ page, set_page ] = useState('tunnel_3')
+  const [ page, set_page ] = useState('landing')
 
   return (
     <div>
