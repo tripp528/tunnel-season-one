@@ -42,7 +42,16 @@ const SubmissionLog = ({ socket }) => {
 
         {messages.length > 0 &&
           messages.map(msg => (
-            <div key={msg.id}> {msg.content} </div>
+            <div
+              key={msg.id}
+              style={{
+                border: '1px solid #2A2C2F',
+                borderRadius: '10px',
+                margin: 10
+              }}
+            >
+              {msg.content}
+            </div>
           ))}
 
           <Input

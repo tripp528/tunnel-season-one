@@ -5,6 +5,7 @@ import background from "./Assets/tunnel_choice/2_Background.jpg"
 import choice1_img from "./Assets/tunnel_choice/tunnel_1.png"
 import choice2_img from "./Assets/tunnel_choice/tunnel_2.png"
 import choice3_img from "./Assets/tunnel_choice/tunnel_3.png"
+import chooseatunnel from "./Assets/tunnel_choice/chooseatunnel.png"
 
 const TunnelChoice = ({ set_page }) => {
   return (
@@ -16,7 +17,34 @@ const TunnelChoice = ({ set_page }) => {
       backgroundSize: '100% 100%'
     }}>
       <Row align="middle" justify="space-around"
-        style={{minHeight: '100vh'}}
+        style={{
+          height: '10vh',
+        }}
+      >
+
+      </Row>
+
+      <Row align="middle" justify="space-around"
+        style={{
+          height: '15vh',
+        }}
+      >
+        <img
+          src={chooseatunnel}
+          height="100%"
+        />
+      </Row>
+
+      <Row align="middle" justify="space-around"
+        style={{
+          height: '10vh',
+        }}
+      >
+
+      </Row>
+
+      <Row align="top" justify="space-around"
+        style={{height: '45vh'}}
       >
         <Col xs={6} lg={4}>
           <img
@@ -52,6 +80,15 @@ const TunnelChoice = ({ set_page }) => {
           />
         </Col>
       </Row>
+
+      <Row align="middle" justify="space-around"
+        style={{
+          height: '10vh',
+        }}
+      >
+        <p style={{color: '#BD261C', backgroundColor: '#ECAAB5', textTransform: 'uppercase'}}> warning: after you have made your choice, there is no return </p>
+      </Row>
+
     </div>
   )
 }
