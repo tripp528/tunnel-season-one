@@ -64,8 +64,9 @@ const SubmitForm = ({ socket, on_submit_post }) => {
         padding: 0,
         backgroundColor: 'white',
         cursor: 'pointer',
+        marginTop: 20
       }} >
-        <img src={submit_button_img} alt="Submit" />
+        <img src={submit_button_img} alt="Submit"  />
       </button>
       </div>
     </div>

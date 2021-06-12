@@ -14,6 +14,30 @@ import bg_3 from "./Assets/pages/Tunnel_3BG.jpg"
 
 import './tunnelpage.css'
 
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
+
 const assets = {
   1: {bg: bg_1, url: 'https://player.vimeo.com/video/552161937'},
   2: {bg: bg_2, url: 'https://player.vimeo.com/video/552162265'},
@@ -24,6 +48,20 @@ const TunnelPage = ({
   socket,
   number
 }) => {
+
+  // useEffect(() => {
+  //   window.el = document.getElementById("tunnelpageframe").contentDocument
+  // }, [])
+
+  let { height, width } = useWindowDimensions()
+  let frame_margin = 30
+  let frame_width = width * (16 / 24) - frame_margin * 2
+  if (width < 1200) {
+    frame_margin = 20
+    frame_width = width - frame_margin - 100
+  }
+
+  let frame_height = frame_width * (360 / 640)
 
   return (
     <div id="tunnelpage" style={{
@@ -39,34 +77,54 @@ const TunnelPage = ({
           paddingTop: 40,
           paddingBottom: 40,
         }}>
-          <div style={{position: 'relative',
+        <iframe
+          src="https://player.vimeo.com/video/552161937?
+          color=c9ff23"
+          width={frame_width}
+          height={frame_height}
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          style={{
+            outline: '10px solid white',
+            outlineRadius: '10px',
+            marginLeft: frame_margin,
+            marginRight: frame_margin
+          }}
+          >
+        </iframe>
+
+
+          {/*<div style={{position: 'relative',
             width: '100%',
             height: '0px',
             paddingBottom: 'min(56.25%, 50vh)',
           }}>
-            <iframe style={{
-              position: 'absolute',
-              left: 0,
-              top: 0,
-              width: '100%',
-              height: '100%',
-              margin: 0,
-              padding: 0,
-              border: '10px solid white',
-              borderRadius: '10px',
-              backgroundColor: 'white',
-              ".vpPlayerLayout": 'margin: 0; padding: 0;'
-            }}
+            <iframe
+              id="tunnelpageframe"
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                width: '100%',
+                height: '100%',
+                margin: 0,
+                padding: 0,
+                border: '10px solid white',
+                borderRadius: '10px',
+                // backgroundColor: 'white',
+              }}
               title="vimeo-player"
               src={assets[number].url}
               width="100%"
               height="100%"
               frameborder="0"
-              // border="10px solid white"
               cellspacing="0"
+              marginwidth="0"
+              seamless
               allowFullScreen>
             </iframe>
-          </div>
+          </div>*/}
         </Col>
 
 

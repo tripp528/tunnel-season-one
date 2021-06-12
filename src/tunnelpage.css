@@ -11,6 +11,11 @@
   height: 100vh;
 }
 
+.vp-video-wrapper {
+  /* display: none; */
+  border: 10px solid white;
+}
+
 @media only screen and (max-width: 1200px) {
   #tunnelpage {
     height: auto;

@@ -43,10 +43,11 @@ const TunnelChoice = ({ set_page }) => {
 
       </Row>
 
+      {/* Tunnels */}
       <Row align="top" justify="space-around"
         style={{height: '45vh'}}
       >
-        <Col xs={6} lg={4}>
+        <Col xs={{span: 4, offset: 20, pull: 10}} md={{span: 4, offset: 20, pull: 10}} lg={{span: 4, offset: 0, pull: 0}} xl={{span: 4, offset: 0, pull: 0}}>
           <img
             onClick={() => set_page('tunnel_1')}
             src={choice1_img}
@@ -57,7 +58,7 @@ const TunnelChoice = ({ set_page }) => {
             }}
           />
         </Col>
-        <Col xs={6} lg={4}>
+        <Col xs={{span: 4, offset: 20, pull: 10}} md={{span: 4, offset: 20, pull: 10}} lg={{span: 4, offset: 0, pull: 0}} xl={{span: 4, offset: 0, pull: 0}}>
           <img
             onClick={() => set_page('tunnel_2')}
             src={choice2_img}
@@ -68,7 +69,7 @@ const TunnelChoice = ({ set_page }) => {
             }}
           />
         </Col>
-        <Col xs={6} lg={4}>
+        <Col xs={{span: 4, offset: 20, pull: 10}} md={{span: 4, offset: 20, pull: 10}} lg={{span: 4, offset: 0, pull: 0}} xl={{span: 4, offset: 0, pull: 0}}>
           <img
             onClick={() => set_page('tunnel_3')}
             src={choice3_img}

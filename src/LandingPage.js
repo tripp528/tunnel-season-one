@@ -46,8 +46,8 @@ const LandingPage = ({ socket, set_page }) => {
           </div>
         </Col >
       </Row>
-      <Row align="middle" justify="center" gutter={[0,0]}>
-        <SubmitForm socket={socket} on_submit_post={() => set_page('tunnel_choice')} />
+      <Row align="middle" justify="center" gutter={[0,0]} >
+        <SubmitForm  socket={socket} on_submit_post={() => set_page('tunnel_choice')} />
       </Row>
     </div>
   )
