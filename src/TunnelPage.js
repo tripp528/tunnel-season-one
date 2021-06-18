@@ -87,48 +87,15 @@ const TunnelPage = ({
           allowfullscreen
           style={{
             outline: '10px solid white',
-            outlineRadius: '10px',
+            // outlineRadius: '10px',
             marginLeft: frame_margin,
             marginRight: frame_margin
           }}
           >
         </iframe>
-
-
-          {/*<div style={{position: 'relative',
-            width: '100%',
-            height: '0px',
-            paddingBottom: 'min(56.25%, 50vh)',
-          }}>
-            <iframe
-              id="tunnelpageframe"
-              style={{
-                position: 'absolute',
-                left: 0,
-                top: 0,
-                width: '100%',
-                height: '100%',
-                margin: 0,
-                padding: 0,
-                border: '10px solid white',
-                borderRadius: '10px',
-                // backgroundColor: 'white',
-              }}
-              title="vimeo-player"
-              src={assets[number].url}
-              width="100%"
-              height="100%"
-              frameborder="0"
-              cellspacing="0"
-              marginwidth="0"
-              seamless
-              allowFullScreen>
-            </iframe>
-          </div>*/}
         </Col>
 
-
-
+        {/* Ad */}
         <Col
           xs={24} s={24}  xl={{span: 4, order: 3}}
           style={{
@@ -138,14 +105,14 @@ const TunnelPage = ({
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundOrigin: 'content-box',
-
             border: '10px solid white',
-            borderRadius: '10px',
+            // borderRadius: '10px',
           }}
         >
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={{
             // backgroundColor: 'black',
-            justify: 'right'
+            justify: 'right',
+            marginTop: '200px'
           }} >
             <input type="hidden" name="cmd" value="_s-xclick"/>
             <input type="hidden" name="hosted_button_id" value="XF6S4N84SAXWJ"/>
@@ -174,7 +141,7 @@ const TunnelPage = ({
           style={{
             color: 'white',
             border: '10px solid white',
-            borderRadius: '10px',
+            // borderRadius: '10px',
             backgroundColor: 'black',
           }} >
             <SubmissionLog socket={socket}

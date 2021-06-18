@@ -32,6 +32,10 @@ const SubmissionLog = ({ socket }) => {
       style={{
         height: '90vh',
         overflow: 'auto',
+        overflowX: 'hidden',
+        overflowWrap: 'break-word',
+        // overflowX: 'scroll',
+        // overflowY: 'hidden',
         display: 'flex',
         flexDirection: 'column-reverse',
         colorScheme: 'dark'

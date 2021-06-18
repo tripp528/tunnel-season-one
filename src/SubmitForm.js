@@ -32,10 +32,11 @@ const SubmitForm = ({ socket, on_submit_post }) => {
       <div>
         <img
           src={say_something}
-          height="100vh"
+          // height="100vh"
+          height="100%"
           style={{
             padding: 20,
-            maxWidth: "100vw",
+            width: "100vw",
           }}
         />
       </div>

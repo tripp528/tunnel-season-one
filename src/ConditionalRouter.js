@@ -11,7 +11,7 @@ const ConditionalRouter = ({ socket }) => {
   const [ page, set_page ] = useState('landing')
 
   return (
-    <div>
+    <div style={{height: '100%'}}>
       {page === 'landing' ?
         <LandingPage socket={socket} set_page={set_page} />
       : null}

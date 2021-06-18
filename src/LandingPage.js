@@ -11,9 +11,10 @@ const LandingPage = ({ socket, set_page }) => {
     <div style={{
       backgroundImage: `url(${background_land})`,
       padding: 0,
-      height: '100vh',
+      height: '100%',
       backgroundRepeat: 'no-repeat',
-      backgroundSize: '100% 100%'
+      backgroundSize: '100% 100%',
+      overflow: 'hidden'
     }}>
       <Row
         align="middle"
