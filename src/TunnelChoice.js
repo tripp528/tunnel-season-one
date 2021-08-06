@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Row, Col } from 'antd'
 
 import background from "./Assets/tunnel_choice/2_Background.jpg"
@@ -8,6 +8,8 @@ import choice3_img from "./Assets/tunnel_choice/tunnel_3.png"
 import chooseatunnel from "./Assets/tunnel_choice/chooseatunnel.png"
 
 const TunnelChoice = ({ set_page }) => {
+
+
   return (
     <div style={{
       backgroundImage: `url(${background})`,
@@ -46,6 +48,7 @@ const TunnelChoice = ({ set_page }) => {
             style={{
               borderRadius: 100,
               cursor: 'pointer',
+              marginBottom: 20,
             }}
           />
         </Col>
@@ -57,6 +60,7 @@ const TunnelChoice = ({ set_page }) => {
             style={{
               borderRadius: 100,
               cursor: 'pointer',
+              marginBottom: 20,
             }}
           />
         </Col>
@@ -68,6 +72,7 @@ const TunnelChoice = ({ set_page }) => {
             style={{
               borderRadius: 100,
               cursor: 'pointer',
+              marginBottom: 20,
             }}
           />
         </Col>
