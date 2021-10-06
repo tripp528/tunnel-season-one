@@ -4,10 +4,7 @@ import { Row, Col, Input } from 'antd'
 
 import SubmissionLog from './SubmissionLog'
 import SubmitForm from './SubmitForm'
-import hammer from "./Assets/pages/hammer.jpg"
-import bg_1 from "./Assets/pages/Tunnel_1BG.jpg"
-import bg_2 from "./Assets/pages/Tunnel_2BG.jpg"
-import bg_3 from "./Assets/pages/Tunnel_3BG.jpg"
+
 // - Tunnel 1: https://vimeo.com/552161937
 // - Tunnel 2: https://vimeo.com/552162265
 // - Tunnel 3: https://vimeo.com/552162451
@@ -39,9 +36,9 @@ function useWindowDimensions() {
 }
 
 const assets = {
-  1: {bg: bg_1, url: 'https://player.vimeo.com/video/552161937'},
-  2: {bg: bg_2, url: 'https://player.vimeo.com/video/552162265'},
-  3: {bg: bg_3, url: 'https://player.vimeo.com/video/552162451'},
+  1: {bg: "/Assets/pages/Tunnel_1BG.jpg", url: 'https://player.vimeo.com/video/552161937'},
+  2: {bg: "/Assets/pages/Tunnel_2BG.jpg", url: 'https://player.vimeo.com/video/552162265'},
+  3: {bg: "/Assets/pages/Tunnel_3BG.jpg", url: 'https://player.vimeo.com/video/552162451'},
 }
 
 const TunnelPage = ({
@@ -65,8 +62,8 @@ const TunnelPage = ({
 
   return (
     <div id="tunnelpage" style={{
+      // backgroundImage: assets[number].bg
       backgroundImage: `url(${assets[number].bg})`
-
     }}>
       <Row
         id="tunnelpagerow"
@@ -78,8 +75,8 @@ const TunnelPage = ({
           paddingBottom: 40,
         }}>
         <iframe
-          src="https://player.vimeo.com/video/552161937?
-          color=c9ff23"
+          src={assets[number].url}
+          color="c9ff23"
           width={frame_width}
           height={frame_height}
           frameborder="0"
@@ -99,7 +96,7 @@ const TunnelPage = ({
         <Col
           xs={24} s={24}  xl={{span: 4, order: 3}}
           style={{
-            backgroundImage: `url(${hammer})`,
+            backgroundImage: `url("/Assets/pages/hammer.jpg")`,
             height: '90vh',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',

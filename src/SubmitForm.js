@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react"
 
-import submit_button_img from "./Assets/landing/1_Submit_Button.png"
-import say_something from "./Assets/landing/1_Say_Something.png"
-
 const SubmitForm = ({ socket, on_submit_post }) => {
   const [message, setMessage] = useState("")
 
@@ -31,7 +28,8 @@ const SubmitForm = ({ socket, on_submit_post }) => {
     >
       <div>
         <img
-          src={say_something}
+          // src={say_something}
+          src="Assets/landing/1_Say_Something.png"
           // height="100vh"
           height="100%"
           style={{
@@ -67,7 +65,10 @@ const SubmitForm = ({ socket, on_submit_post }) => {
         cursor: 'pointer',
         marginTop: 20
       }} >
-        <img src={submit_button_img} alt="Submit"  />
+        <img
+          src="Assets/landing/1_Submit_Button.png"
+          alt="Submit"
+        />
       </button>
       </div>
     </div>

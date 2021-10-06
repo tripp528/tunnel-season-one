@@ -1,18 +1,13 @@
 import React, { useEffect } from 'react'
 import { Row, Col } from 'antd'
 
-import background from "./Assets/tunnel_choice/2_Background.jpg"
-import choice1_img from "./Assets/tunnel_choice/tunnel_1.png"
-import choice2_img from "./Assets/tunnel_choice/tunnel_2.png"
-import choice3_img from "./Assets/tunnel_choice/tunnel_3.png"
-import chooseatunnel from "./Assets/tunnel_choice/chooseatunnel.png"
 
 const TunnelChoice = ({ set_page }) => {
 
 
   return (
     <div style={{
-      backgroundImage: `url(${background})`,
+      backgroundImage: `url("/Assets/tunnel_choice/2_Background.jpg")`,
       padding: 0,
       height: '100%',
       overflow: 'hidden',
@@ -28,7 +23,7 @@ const TunnelChoice = ({ set_page }) => {
         }}
       >
         <img
-          src={chooseatunnel}
+          src="/Assets/tunnel_choice/chooseatunnel.png"
           height="100%"
         />
       </Row>
@@ -43,7 +38,7 @@ const TunnelChoice = ({ set_page }) => {
         <Col xs={{span: 8, offset: 16, pull: 8}} md={{span: 8, offset: 16, pull: 8}} lg={{span: 4, offset: 0, pull: 0}} xl={{span: 4, offset: 0, pull: 0}}>
           <img
             onClick={() => set_page('tunnel_1')}
-            src={choice1_img}
+            src="/Assets/tunnel_choice/tunnel_1.png"
             width="100%"
             style={{
               borderRadius: 100,
@@ -55,7 +50,7 @@ const TunnelChoice = ({ set_page }) => {
         <Col xs={{span: 8, offset: 16, pull: 8}} md={{span: 8, offset: 16, pull: 8}} lg={{span: 4, offset: 0, pull: 0}} xl={{span: 4, offset: 0, pull: 0}}>
           <img
             onClick={() => set_page('tunnel_2')}
-            src={choice2_img}
+            src="/Assets/tunnel_choice/tunnel_2.png"
             width="100%"
             style={{
               borderRadius: 100,
@@ -67,7 +62,7 @@ const TunnelChoice = ({ set_page }) => {
         <Col xs={{span: 8, offset: 16, pull: 8}} md={{span: 8, offset: 16, pull: 8}} lg={{span: 4, offset: 0, pull: 0}} xl={{span: 4, offset: 0, pull: 0}}>
           <img
             onClick={() => set_page('tunnel_3')}
-            src={choice3_img}
+            src="/Assets/tunnel_choice/tunnel_3.png"
             width="100%"
             style={{
               borderRadius: 100,

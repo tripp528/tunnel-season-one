@@ -3,13 +3,12 @@ import { Row, Col } from 'antd'
 
 import SubmitForm from './SubmitForm'
 import SubmissionLog from './SubmissionLog'
-import background_land from "./Assets/landing/1_Background.jpg"
 
 const LandingPage = ({ socket, set_page }) => {
 
   return (
     <div style={{
-      backgroundImage: `url(${background_land})`,
+      backgroundImage: `url("Assets/landing/1_Background.jpg")`,
       padding: 0,
       height: '100%',
       backgroundRepeat: 'no-repeat',
