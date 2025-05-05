@@ -42,3 +42,9 @@ psql (13.1)
 Type "help" for help.
 
 ```
+
+
+### manually access database
+```
+heroku pg:psql
+```
